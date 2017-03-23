@@ -34,6 +34,10 @@ public class NuPack {
 		}
 		return basemp+personmp+categorymp;
 	}
+	public static double finalprice(int quantity,double amount)
+	{
+		return amount=quantity*amount;
+	}
 	public static void main(String args[])
 	{
 		
@@ -45,11 +49,24 @@ public class NuPack {
 		//remove the first comma from the price
 		s = s.replaceFirst(",","");
 		String[] temp = s.split(","); 
-		price = temp[0];
-		person = temp[1];
-		category = temp[2];
-		double finalprice=markup(price,person,category);
-		System.out.println("" + finalprice);
+		try
+		{
+			price = temp[0];
+			person = temp[1];
+			category = temp[2];
+			double finalprice=markup(price,person,category);
+			System.out.println("" + finalprice);
+			System.out.println("Do you want more than one item? if yes please enter how many you want");
+			Scanner sc2=new Scanner(System.in);
+			int quantity=sc2.nextInt();
+			double finalamount=finalprice(quantity,finalprice);
+			System.out.println(""+finalamount);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Either enter a price with a ',' or add 'person' or 'people' while giving people");
+			//continue;
+		}
 	}
 
 }
