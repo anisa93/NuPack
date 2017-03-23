@@ -16,11 +16,11 @@ public class NuPack {
 		int price_people = Integer.parseInt(people);
 		double personmp = ((basemp*price_people*1.2)/100);
 		double categorymp;
-		if(category.equals("pharmaceuticals"))
+		if(category.equals("pharmaceuticals")||(category.equals("drugs")||(category.equals("medicines"))))
 		{
 			categorymp=((basemp*7.5)/100);
 		}
-		else if(category.equals("food"))
+		else if(category.equals("food")||category.equals("fruits")||category.equals("vegetables"))
 		{
 			categorymp=((basemp*13)/100);
 		}
