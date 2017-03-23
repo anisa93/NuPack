@@ -12,9 +12,9 @@ public class NuPack {
 		double basemp =((baseprice*5)/100)+baseprice;
 		
 		//for people 1.2% each
-		char[] peoples=people.toCharArray();
-		int price_people=Integer.valueOf(peoples[0])-'0';
-		double personmp=((basemp*price_people*1.2)/100);
+		people = people.substring(0,people.indexOf("p"));
+		int price_people = Integer.parseInt(people);
+		double personmp = ((basemp*price_people*1.2)/100);
 		double categorymp;
 		if(category.equals("pharmaceuticals"))
 		{
