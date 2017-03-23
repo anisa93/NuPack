@@ -5,8 +5,8 @@ public class NuPack {
 	
 	public static double markup(String job,String people,String category)
 	{
-		String newjob=job.replace("$","");
-		double baseprice=Double.parseDouble(newjob);
+		String replacedollar=job.replace("$","");
+		double baseprice=Double.parseDouble(replacedollar);
 		//double amount=0.0;
 		//flat markup 5% each
 		double basemp =((baseprice*5)/100)+baseprice;
@@ -40,12 +40,16 @@ public class NuPack {
 		Scanner sc1=new Scanner(System.in);
 		String s = sc1.nextLine();
 		String price = null,person = null,category = null;
-		String[] tempList = s.split(","); 
-	    price = tempList[0];
-	    person = tempList[1];
-	    category=tempList[2];
+		//remove all spaces
+		s = s.replace(" ","");
+		//remove the first comma from the price
+		s = s.replaceFirst(",","");
+		String[] temp = s.split(","); 
+		price = temp[0];
+		person = temp[1];
+		category = temp[2];
 		double finalprice=markup(price,person,category);
-		System.out.println(" the final price is"+finalprice);
+		System.out.println("" + finalprice);
 	}
 
 }
